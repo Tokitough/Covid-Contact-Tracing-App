@@ -15,10 +15,12 @@ class ContactTracingGUI:
     phone_num = Label(parent, text = "Phone Number: ")
     email_add = Label(parent, text = "Email Address: ")
     address = Label(parent, text = "Address: ")
+    test_date = Label(parent, text = "Date of Test: ")
+    test_result = Label(parent, text = "Test Result: ")
 
     # Button
     submit_btn = Button(parent, text = "Submit")
-    submit_btn.grid(row = 7, column = 1)
+    submit_btn.grid(row = 8, column = 1)
 
     # Create Entry Fields
     name_entry = Entry(parent)
@@ -27,6 +29,8 @@ class ContactTracingGUI:
     phone_num_entry = Entry(parent)
     email_add_entry = Entry(parent)
     address_entry = Entry(parent)
+    test_date_entry = Entry(parent)
+    test_result_entry = Entry(parent)
 
     # Place Labels and entry fields
     name.grid(row = 0, column = 0, pady = 10, padx = 5)
@@ -46,6 +50,11 @@ class ContactTracingGUI:
 
     address.grid(row = 5, column = 0, pady = 10, padx = 5)
     address_entry.grid(row = 5, column = 1)
+    
+    test_date.grid(row = 6, column = 0, pady = 10, padx = 5)
+    test_date_entry.grid(row = 6, column = 1)
+    
+    test_result.grid(row = 7, column = 0, pady = 10, padx = 5)
+    test_result_entry.grid(row = 7, column = 1)
 
     parent.mainloop()
-
