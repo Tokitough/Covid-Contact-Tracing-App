@@ -19,10 +19,10 @@ class ContactTracingGUI:
     test_result = Label(parent, text = "Test Result: ")
 
     # Button
-    submit_btn = Button(parent, text = "Submit Entry")
+    submit_btn = Button(parent, text = "Submit Entry", command= self.add_entry)
     submit_btn.grid(row = 8, column = 1)
     
-    search_btn = Button(parent, text = "Search Entry")
+    search_btn = Button(parent, text = "Search Entry", command=)
     search_btn.grid(row = 8, column = 0)
     
     # Create Entry Fields
@@ -81,3 +81,9 @@ class ContactTracingGUI:
         email_add = self.email_add_entry.delete(0, END)
         test_date = self.test_date_entry.delete(0, END)
         test_result = self.test_result_entry.delete(0, END)
+        
+    # Search Entry
+    def search_entry(self):
+        name = self.name_entry.get()
+        
+        
