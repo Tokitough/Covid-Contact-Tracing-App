@@ -58,3 +58,23 @@ class ContactTracingGUI:
     test_result_entry.grid(row = 7, column = 1)
 
     parent.mainloop()
+
+    # Function for getting entries
+    def add_entry(self):
+        name = self.name_entry.get()
+        gender = self.gender_entry.get()
+        bday = self.bday_entry.get()
+        phone_num = self.phone_num_entry.get()
+        email_add = self.email_add_entry.get()
+        test_date = self.test_date_entry.get()
+        test_result = self.test_result_entry.get()
+       
+    #  Function for clearing entries
+     def clear_entry(self):
+        name = self.name_entry.delete(0, END)
+        gender = self.gender_entry.delete(0, END)
+        bday = self.bday_entry.delete(0, END)
+        phone_num = self.phone_num_entry.delete(0, END)
+        email_add = self.email_add_entry.delete(0, END)
+        test_date = self.test_date_entry.delete(0, END)
+        test_result = self.test_result_entry.delete(0, END)
