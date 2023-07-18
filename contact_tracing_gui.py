@@ -19,9 +19,12 @@ class ContactTracingGUI:
     test_result = Label(parent, text = "Test Result: ")
 
     # Button
-    submit_btn = Button(parent, text = "Submit")
+    submit_btn = Button(parent, text = "Submit Entry")
     submit_btn.grid(row = 8, column = 1)
-
+    
+    search_btn = Button(parent, text = "Search Entry")
+    search_btn.grid(row = 8, column = 0)
+    
     # Create Entry Fields
     name_entry = Entry(parent)
     gender_entry = Entry(parent)
@@ -70,7 +73,7 @@ class ContactTracingGUI:
         test_result = self.test_result_entry.get()
        
     #  Function for clearing entries
-     def clear_entry(self):
+    def clear_entry(self):
         name = self.name_entry.delete(0, END)
         gender = self.gender_entry.delete(0, END)
         bday = self.bday_entry.delete(0, END)
