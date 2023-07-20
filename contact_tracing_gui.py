@@ -15,14 +15,13 @@ class ContactTracingGUI:
     phone_num = Label(parent, text = "Phone Number: ")
     email_add = Label(parent, text = "Email Address: ")
     address = Label(parent, text = "Address: ")
-    test_date = Label(parent, text = "Date of Test: ")
-    test_result = Label(parent, text = "Test Result: ")
+    test = Label(parent, text = "Have you tested for Covid?")
 
     # Button
-    submit_btn = Button(parent, text = "Submit Entry", command= add_entry)
+    submit_btn = Button(parent, text = "Submit Entry",)
     submit_btn.grid(row = 8, column = 1)
     
-    search_btn = Button(parent, text = "Search Entry", command= search_entry)
+    search_btn = Button(parent, text = "Search Entry",)
     search_btn.grid(row = 8, column = 0)
     
     # Create Entry Fields
@@ -32,9 +31,11 @@ class ContactTracingGUI:
     phone_num_entry = Entry(parent)
     email_add_entry = Entry(parent)
     address_entry = Entry(parent)
-    test_date_entry = Entry(parent)
-    test_result_entry = Entry(parent)
-
+    test_1 = Checkbutton(row = 6, column = 0, pady = 10, padx = 5, text = "No",)
+    test_2 = Checkbutton(row = 7, column = 0, pady = 10, padx = 5, text = "Yes(Negative)",)
+    test_3 = Checkbutton(row = 8, column = 0, pady = 10, padx = 5, text = "Yes(Positive)",)
+    test_4 = Checkbutton(row = 9, column = 0, pady = 10, padx = 5, text = "Yes(Pending)",)
+    
     # Place Labels and entry fields
     name.grid(row = 0, column = 0, pady = 10, padx = 5)
     name_entry.grid(row = 0, column = 1)
