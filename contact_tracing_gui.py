@@ -15,26 +15,28 @@ class ContactTracingGUI:
     phone_num = Label(parent, text = "Phone Number: ")
     email_add = Label(parent, text = "Email Address: ")
     address = Label(parent, text = "Address: ")
-    test = Label(parent, text = "Have you tested for Covid?")
+    test = Label(parent, text = "Have you tested for Covid? \n Select only one")
 
     # Button
     submit_btn = Button(parent, text = "Submit Entry",)
-    submit_btn.grid(row = 8, column = 1)
+    submit_btn.place(x = 160, y = 350, width = 90)
     
     search_btn = Button(parent, text = "Search Entry",)
-    search_btn.grid(row = 8, column = 0)
+    search_btn.place(x = 160, y = 380, width = 90)
     
-    # Create Entry Fields
+    # Create Entry Fields and Checkbuttons
     name_entry = Entry(parent)
     gender_entry = Entry(parent)
     bday_entry = Entry(parent)
     phone_num_entry = Entry(parent)
     email_add_entry = Entry(parent)
     address_entry = Entry(parent)
-    test_1 = Checkbutton(row = 6, column = 0, pady = 10, padx = 5, text = "No",)
-    test_2 = Checkbutton(row = 7, column = 0, pady = 10, padx = 5, text = "Yes(Negative)",)
-    test_3 = Checkbutton(row = 8, column = 0, pady = 10, padx = 5, text = "Yes(Positive)",)
-    test_4 = Checkbutton(row = 9, column = 0, pady = 10, padx = 5, text = "Yes(Pending)",)
+    
+    test_var = IntVar()
+    test_1 = Checkbutton(parent, text = "No", variable = test_var, onvalue = 1, offvalue = 0)
+    test_2 = Checkbutton(parent, text = "Yes(Negative)", variable = test_var, onvalue = 1, offvalue = 0)
+    test_3 = Checkbutton(parent, text = "Yes(Positive)", variable = test_var, onvalue = 1, offvalue = 0)
+    test_4 = Checkbutton(parent,text = "Yes(Pending)", variable = test_var, onvalue = 1, offvalue = 0)
     
     # Place Labels and entry fields
     name.grid(row = 0, column = 0, pady = 10, padx = 5)
@@ -55,12 +57,12 @@ class ContactTracingGUI:
     address.grid(row = 5, column = 0, pady = 10, padx = 5)
     address_entry.grid(row = 5, column = 1)
     
-    test_date.grid(row = 6, column = 0, pady = 10, padx = 5)
-    test_date_entry.grid(row = 6, column = 1)
+    test.grid(row = 6, column = 0, pady = 10, padx = 5)
+    test_1.place(x = 160, y = 255)
+    test_2.place(x = 160, y = 275)
+    test_3.place(x = 160, y = 295)
+    test_4.place(x = 160, y = 315)
     
-    test_result.grid(row = 7, column = 0, pady = 10, padx = 5)
-    test_result_entry.grid(row = 7, column = 1)
-
     parent.mainloop()
 
     # Function for getting entries
@@ -70,9 +72,8 @@ class ContactTracingGUI:
         bday = self.bday_entry.get()
         phone_num = self.phone_num_entry.get()
         email_add = self.email_add_entry.get()
-        test_date = self.test_date_entry.get()
-        test_result = self.test_result_entry.get()
-       
+        test = self.test_var.get()
+        
     #  Function for clearing entries
     def clear_entry(self):
         name = self.name_entry.delete(0, END)
@@ -80,9 +81,7 @@ class ContactTracingGUI:
         bday = self.bday_entry.delete(0, END)
         phone_num = self.phone_num_entry.delete(0, END)
         email_add = self.email_add_entry.delete(0, END)
-        test_date = self.test_date_entry.delete(0, END)
-        test_result = self.test_result_entry.delete(0, END)
-        
+
     # Search Entry
     def search_entry(self):
         name = self.name_entry.get()
