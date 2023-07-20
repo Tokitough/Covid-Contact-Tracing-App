@@ -19,10 +19,10 @@ class ContactTracingGUI:
     test_result = Label(parent, text = "Test Result: ")
 
     # Button
-    submit_btn = Button(parent, text = "Submit Entry", command= self.add_entry)
+    submit_btn = Button(parent, text = "Submit Entry", command= add_entry)
     submit_btn.grid(row = 8, column = 1)
     
-    search_btn = Button(parent, text = "Search Entry", command=)
+    search_btn = Button(parent, text = "Search Entry", command= search_entry)
     search_btn.grid(row = 8, column = 0)
     
     # Create Entry Fields
