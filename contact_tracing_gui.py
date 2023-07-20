@@ -1,5 +1,6 @@
 # Import tkinter module
 from tkinter import *
+from contact_tracing_app import ContactTracing
 
 class ContactTracingGUI:
     def __init__(self, parent):
@@ -63,6 +64,9 @@ class ContactTracingGUI:
     test_3.place(x = 160, y = 295)
     test_4.place(x = 160, y = 315)
     
+    # Instance for contact tracing app
+    contact_trace = ContactTracing()
+    
     parent.mainloop()
 
     # Function for getting entries
@@ -73,6 +77,9 @@ class ContactTracingGUI:
         phone_num = self.phone_num_entry.get()
         email_add = self.email_add_entry.get()
         test = self.test_var.get()
+        
+        # Call add_entry method from ContactTracing class
+        self.contact_trace.add_entry(name, gender, bday, phone_num, email_add, test)
         
     #  Function for clearing entries
     def clear_entry(self):
@@ -86,4 +93,5 @@ class ContactTracingGUI:
     def search_entry(self):
         name = self.name_entry.get()
         
-        
+    # Clear Entry
+    def clear_entry(self):
