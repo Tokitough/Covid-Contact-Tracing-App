@@ -1,43 +1,44 @@
 # Import tkinter module
 from tkinter import *
 from contact_tracing_app import ContactTracing
+import tkinter as tk
 
 class ContactTracingGUI:
-    def __init__(self, parent):
-        self.parent = parent
+    def __init__(self, root):
+        self.root = root
     
     # Create Labels
-    parent = Tk()
-    parent.title("Covid Contact Tracing")
-    parent.geometry("700x500")
-    name = Label(parent, text = "Name: ")
-    gender = Label(parent, text = "Gender: ")
-    bday = Label(parent, text = "Birthday: ")
-    phone_num = Label(parent, text = "Phone Number: ")
-    email_add = Label(parent, text = "Email Address: ")
-    address = Label(parent, text = "Address: ")
-    test = Label(parent, text = "Have you tested for Covid? \n Select only one")
+    root = tk.Tk()
+    root.title("Covid Contact Tracing")
+    root.geometry("700x500")
+    name = Label(root, text = "Name: ")
+    gender = Label(root, text = "Gender: ")
+    bday = Label(root, text = "Birthday: ")
+    phone_num = Label(root, text = "Phone Number: ")
+    email_add = Label(root, text = "Email Address: ")
+    address = Label(root, text = "Address: ")
+    test = Label(root, text = "Have you tested for Covid? \n Select only one")
 
     # Button
-    submit_btn = Button(parent, text = "Submit Entry", command = add_entry())
+    submit_btn = Button(root, text = "Submit Entry", command = self.add_entry())
     submit_btn.place(x = 160, y = 350, width = 90)
     
-    search_btn = Button(parent, text = "Search Entry", command = search_entry())
+    search_btn = Button(root, text = "Search Entry", command = self.search_entry())
     search_btn.place(x = 160, y = 380, width = 90)
     
     # Create Entry Fields and Checkbuttons
-    name_entry = Entry(parent)
-    gender_entry = Entry(parent)
-    bday_entry = Entry(parent)
-    phone_num_entry = Entry(parent)
-    email_add_entry = Entry(parent)
-    address_entry = Entry(parent)
+    name_entry = Entry(root)
+    gender_entry = Entry(root)
+    bday_entry = Entry(root)
+    phone_num_entry = Entry(root)
+    email_add_entry = Entry(root)
+    address_entry = Entry(root)
     
     test_var = IntVar()
-    test_1 = Checkbutton(parent, text = "No", variable = test_var, onvalue = 1, offvalue = 0)
-    test_2 = Checkbutton(parent, text = "Yes(Negative)", variable = test_var, onvalue = 1, offvalue = 0)
-    test_3 = Checkbutton(parent, text = "Yes(Positive)", variable = test_var, onvalue = 1, offvalue = 0)
-    test_4 = Checkbutton(parent,text = "Yes(Pending)", variable = test_var, onvalue = 1, offvalue = 0)
+    test_1 = Checkbutton(root, text = "No", variable = test_var, onvalue = 1, offvalue = 0)
+    test_2 = Checkbutton(root, text = "Yes(Negative)", variable = test_var, onvalue = 1, offvalue = 0)
+    test_3 = Checkbutton(root, text = "Yes(Positive)", variable = test_var, onvalue = 1, offvalue = 0)
+    test_4 = Checkbutton(root,text = "Yes(Pending)", variable = test_var, onvalue = 1, offvalue = 0)
     
     # Place Labels and entry fields
     name.grid(row = 0, column = 0, pady = 10, padx = 5)
@@ -67,7 +68,7 @@ class ContactTracingGUI:
     # Instance for contact tracing app
     contact_trace = ContactTracing()
     
-    parent.mainloop()
+    root.mainloop()
     # Function for getting entries
     def add_entry(self):
         name = self.name_entry.get()
@@ -95,7 +96,7 @@ class ContactTracingGUI:
     # Search Entry
     def search_entry(self):
         
-        search_window = Toplevel(parent)
+        search_window = Toplevel(root)
         name = self.name_entry.get()
         
         # Call search entry method from ContactTracing class
