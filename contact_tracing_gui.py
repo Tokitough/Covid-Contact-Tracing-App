@@ -19,10 +19,10 @@ class ContactTracingGUI:
     test = Label(parent, text = "Have you tested for Covid? \n Select only one")
 
     # Button
-    submit_btn = Button(parent, text = "Submit Entry",)
+    submit_btn = Button(parent, text = "Submit Entry", command = add_entry())
     submit_btn.place(x = 160, y = 350, width = 90)
     
-    search_btn = Button(parent, text = "Search Entry",)
+    search_btn = Button(parent, text = "Search Entry", command = search_entry())
     search_btn.place(x = 160, y = 380, width = 90)
     
     # Create Entry Fields and Checkbuttons
@@ -68,7 +68,6 @@ class ContactTracingGUI:
     contact_trace = ContactTracing()
     
     parent.mainloop()
-
     # Function for getting entries
     def add_entry(self):
         name = self.name_entry.get()
@@ -95,6 +94,8 @@ class ContactTracingGUI:
 
     # Search Entry
     def search_entry(self):
+        
+        search_window = Toplevel(parent)
         name = self.name_entry.get()
         
         # Call search entry method from ContactTracing class
@@ -106,4 +107,5 @@ class ContactTracingGUI:
                 print(item)
         else:
             print("We cannot find this entry")
-            
+        
+
