@@ -81,17 +81,29 @@ class ContactTracingGUI:
         # Call add_entry method from ContactTracing class
         self.contact_trace.add_entry(name, gender, bday, phone_num, email_add, test)
         
+        self.clear_entry()
+        print("Entry Submitted.")
+        
     #  Function for clearing entries
     def clear_entry(self):
-        name = self.name_entry.delete(0, END)
-        gender = self.gender_entry.delete(0, END)
-        bday = self.bday_entry.delete(0, END)
-        phone_num = self.phone_num_entry.delete(0, END)
-        email_add = self.email_add_entry.delete(0, END)
+        self.name_entry.delete(0, END)
+        self.gender_entry.delete(0, END)
+        self.bday_entry.delete(0, END)
+        self.phone_num_entry.delete(0, END)
+        self.email_add_entry.delete(0, END)
+        self.test.delete(0, END)
 
     # Search Entry
     def search_entry(self):
         name = self.name_entry.get()
         
-    # Clear Entry
-    def clear_entry(self):
+        # Call search entry method from ContactTracing class
+        entry = self.contact_trace.search_entry(name)
+        
+        if entry:
+            print("Entry found:")
+            for item in entry:
+                print(item)
+        else:
+            print("We cannot find this entry")
+            
