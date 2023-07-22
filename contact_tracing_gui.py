@@ -35,10 +35,10 @@ class ContactTracingGUI:
     address_entry = Entry(root)
     
     test_var = IntVar()
-    test_1 = Checkbutton(root, text = "No", variable = test_var, onvalue = 1, offvalue = 0)
-    test_2 = Checkbutton(root, text = "Yes(Negative)", variable = test_var, onvalue = 1, offvalue = 0)
-    test_3 = Checkbutton(root, text = "Yes(Positive)", variable = test_var, onvalue = 1, offvalue = 0)
-    test_4 = Checkbutton(root,text = "Yes(Pending)", variable = test_var, onvalue = 1, offvalue = 0)
+    test_1 = Radiobutton(root, text = "No", variable = test_var, value = 1)
+    test_2 = Radiobutton(root, text = "Yes(Negative)", variable = test_var, value = 2)
+    test_3 = Radiobutton(root, text = "Yes(Positive)", variable = test_var, value = 3)
+    test_4 = Radiobutton(root,text = "Yes(Pending)", variable = test_var, value = 4)
     
     # Place Labels and entry fields
     name.grid(row = 0, column = 0, pady = 10, padx = 5)
