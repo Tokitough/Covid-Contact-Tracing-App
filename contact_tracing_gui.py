@@ -75,10 +75,11 @@ class ContactTracingGUI:
         bday = self.bday_entry.get()
         phone_num = self.phone_num_entry.get()
         email_add = self.email_add_entry.get()
+        address = self.address_entry.get()
         test = self.test_var.get()
         
         # Call add_entry method from ContactTracing class
-        self.contact_trace.add_entry(name, gender, bday, phone_num, email_add, test)
+        self.contact_trace.add_entry(name, gender, bday, phone_num, email_add, address, test)
         
         self.clear_entry()
         print("Entry Submitted.")
