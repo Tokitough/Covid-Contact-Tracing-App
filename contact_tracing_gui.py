@@ -26,7 +26,7 @@ class ContactTracingGUI:
     search_btn = Button(root, text = "Search Entry", command = self.search_entry())
     search_btn.place(x = 160, y = 380, width = 90)
     
-    # Create Entry Fields and Checkbuttons
+    # Create Entry Fields and Radiobuttons
     name_entry = Entry(root)
     gender_entry = Entry(root)
     bday_entry = Entry(root)
