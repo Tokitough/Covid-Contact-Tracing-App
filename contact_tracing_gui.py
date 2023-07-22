@@ -17,7 +17,7 @@ class ContactTracingGUI:
         phone_num = Label(root, text = "Phone Number: ")
         email_add = Label(root, text = "Email Address: ")
         address = Label(root, text = "Address: ")
-        test = Label(root, text = "Have you tested for Covid? \n Select only one")
+        test = Label(root, text = "Have you tested for Covid?")
         
         # Create Entry Fields and Radiobuttons
         self.name_entry = Entry(root)
@@ -64,7 +64,9 @@ class ContactTracingGUI:
     
         self.search_btn = tk.Button(root, text = "Search Entry", command = self.search_entry)
         self.search_btn.place(x = 160, y = 380, width = 90)
-    
+        
+        # Instance for contact tracing app
+        self.contact_trace = ContactTracing()
         
         
     # Function for getting entries
@@ -107,8 +109,3 @@ class ContactTracingGUI:
         else:
             print("We cannot find this entry")
         
-
-        # Instance for contact tracing app
-        self.contact_trace = ContactTracing()
-    
-        root.mainloop()
