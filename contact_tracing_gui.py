@@ -92,12 +92,19 @@ class ContactTracingGUI:
         self.phone_num_entry.delete(0, END)
         self.email_add_entry.delete(0, END)
         self.address_entry.delete(0, END)
-        self.test_var.delete(0, END)
+        self.test_var.set("")
 
     # Search Entry
     def search_entry(self):
         
-        self.search_window = Toplevel()
+        self.search_window = tk.Toplevel()
+        
+        name = Label(tk.Toplevel, text = "Search for?")
+        name.grid(row = 0, column = 0, pady = 10, padx = 5)
+        
+        name = Entry(tk.Toplevel, text = "Search for?")
+        self.name_entry.grid(row = 1, column = 0)
+        
         name = self.name_entry.get()
         
         # Call search entry method from ContactTracing class
