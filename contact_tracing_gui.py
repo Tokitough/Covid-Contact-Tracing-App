@@ -8,7 +8,6 @@ class ContactTracingGUI:
         self.root = root
         
         # Create Labels
-        root = tk.Tk()
         root.title("Covid Contact Tracing")
         root.geometry("700x500")
         name = Label(root, text = "Name: ")
