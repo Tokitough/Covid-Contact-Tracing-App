@@ -90,12 +90,13 @@ class ContactTracingGUI:
         self.bday_entry.delete(0, END)
         self.phone_num_entry.delete(0, END)
         self.email_add_entry.delete(0, END)
+        self.address_entry.delete(0, END)
         self.test_var.delete(0, END)
 
     # Search Entry
     def search_entry(self):
         
-        search_window = Toplevel()
+        self.search_window = Toplevel()
         name = self.name_entry.get()
         
         # Call search entry method from ContactTracing class
