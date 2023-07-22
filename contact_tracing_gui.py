@@ -65,10 +65,7 @@ class ContactTracingGUI:
         self.search_btn = tk.Button(root, text = "Search Entry", command = self.search_entry)
         self.search_btn.place(x = 160, y = 380, width = 90)
     
-        # Instance for contact tracing app
-        self.contact_trace = ContactTracing()
-    
-        root.mainloop()
+        
         
     # Function for getting entries
     def add_entry(self):
@@ -92,7 +89,7 @@ class ContactTracingGUI:
         self.bday_entry.delete(0, END)
         self.phone_num_entry.delete(0, END)
         self.email_add_entry.delete(0, END)
-        self.test.delete(0, END)
+        self.test_var.delete(0, END)
 
     # Search Entry
     def search_entry(self):
@@ -111,3 +108,7 @@ class ContactTracingGUI:
             print("We cannot find this entry")
         
 
+        # Instance for contact tracing app
+        self.contact_trace = ContactTracing()
+    
+        root.mainloop()
