@@ -16,7 +16,7 @@ search = Search(main_window)
 add_button = tk.Button(main_window, text = "Add an entry", command = add.add_entry, width = 15, height = 2, font = ("Times New Roman", 12), bg = "#ffeebf")
 add_button.place(relx=0.5, rely=0.45, anchor=tk.CENTER)
 
-search_button = tk.Button(main_window, text = "Add an entry", command = add.add_entry, width = 15, height = 2, font = ("Times New Roman", 12), bg = "#ffeebf")
+search_button = tk.Button(main_window, text = "Search for an entry", command = add.add_entry, width = 15, height = 2, font = ("Times New Roman", 12), bg = "#ffeebf")
 search_button.place(relx=0.5, rely=0.60, anchor=tk.CENTER)
 
 # Start the app

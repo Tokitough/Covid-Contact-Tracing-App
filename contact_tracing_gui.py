@@ -6,33 +6,37 @@ import re
 import csv
 
 class Add:
-    def __init__(self, root):
-        self.root = root
+    def __init__(self, main):
+        self.main = main
+    
+    def answer_fields(self):    
+        
+        answer_window = tk.Toplevel(self.main)
+        answer_window.title("Covid Contact Tracing")
+        answer_window.geometry("700x500")
         
         # Create Labels
-        root.title("Covid Contact Tracing")
-        root.geometry("700x500")
-        name = Label(root, text = "Full Name (First Name-Middle Name-Last Name): ")
-        gender = Label(root, text = "Gender: ")
-        age = Label(root, text = "Age: ")
-        phone_num = Label(root, text = "Phone Number: ")
-        email_add = Label(root, text = "Email Address: ")
-        address = Label(root, text = "Address: ")
-        test = Label(root, text = "Have you tested for Covid?")
+        name = Label(answer_window, text = "Full Name (First Name-Middle Name-Last Name): ")
+        gender = Label(answer_window, text = "Gender: ")
+        age = Label(answer_window, text = "Age: ")
+        phone_num = Label(answer_window, text = "Phone Number: ")
+        email_add = Label(answer_window, text = "Email Address: ")
+        address = Label(answer_window, text = "Address: ")
+        test = Label(answer_window, text = "Have you tested for Covid?")
         
         # Create Entry Fields and Radiobuttons
-        self.name_entry = Entry(root)
-        self.gender_entry = Entry(root)
-        self.age_entry = Entry(root)
-        self.phone_num_entry = Entry(root)
-        self.email_add_entry = Entry(root)
-        self.address_entry = Entry(root)
+        self.name_entry = Entry(answer_window)
+        self.gender_entry = Entry(answer_window)
+        self.age_entry = Entry(answer_window)
+        self.phone_num_entry = Entry(answer_window)
+        self.email_add_entry = Entry(answer_window)
+        self.address_entry = Entry(answer_window)
         
         self.test_var = IntVar()
-        test_1 = Radiobutton(root, text = "No", variable = self.test_var, value = 1)
-        test_2 = Radiobutton(root, text = "Yes(Negative)", variable = self.test_var, value = 2)
-        test_3 = Radiobutton(root, text = "Yes(Positive)", variable = self.test_var, value = 3)
-        test_4 = Radiobutton(root, text = "Yes(Pending)", variable = self.test_var, value = 4)
+        test_1 = Radiobutton(answer_window, text = "No", variable = self.test_var, value = 1)
+        test_2 = Radiobutton(answer_window, text = "Yes(Negative)", variable = self.test_var, value = 2)
+        test_3 = Radiobutton(answer_window, text = "Yes(Positive)", variable = self.test_var, value = 3)
+        test_4 = Radiobutton(answer_window, text = "Yes(Pending)", variable = self.test_var, value = 4)
         
         # Place Labels and entry fields
         name.grid(row = 0, column = 0, pady = 10, padx = 5)
@@ -60,7 +64,7 @@ class Add:
         test_4.place(x = 160, y = 315)
         
         # Button
-        self.submit_btn = tk.Button(root, text = "Submit Entry", command = self.add_entry)
+        self.submit_btn = tk.Button(answer_window, text = "Submit Entry", command = self.add_entry)
         self.submit_btn.place(x = 160, y = 350, width = 90)
         
     # Function for getting entries
@@ -101,6 +105,8 @@ class Add:
                     messagebox.showerror("Invalid Age!")
                 elif str(e) == "Invalid contact number":
                     messagebox.showerror("Error", "That contact number is invalid")
+        
+        self.answer_window.destroy()
         
     #  Function for clearing entries
     def clear_entry(self):
