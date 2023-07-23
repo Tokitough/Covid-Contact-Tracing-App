@@ -96,19 +96,6 @@ class ContactTracingGUI:
 
     # Search Entry
     def search_entry(self):
-        
-        self.search_window = tk.Toplevel()
-        
-        # Search Label, Entry field, and Button
-        name = Label(tk.Toplevel, text = "Search for?")
-        name.grid(row = 0, column = 0, pady = 10, padx = 5)
-        
-        name = Entry(tk.Toplevel, text = "Search for?")
-        self.name_entry.grid(row = 1, column = 0)
-        
-        self.name_search = tk.Button(tk.Toplevel, text = "Search Entry", command = self.search_entry)
-        self.name_search.place(row = 2, column = 0)
-        
         name = self.name_entry.get()
         
         # Call search entry method from ContactTracing class
