@@ -2,6 +2,9 @@
 from tkinter import *
 from contact_tracing_app import ContactTracing
 import tkinter as tk
+from tkinter import messagebox
+import re
+import csv
 
 class ContactTracingGUI:
     def __init__(self, root):
@@ -10,9 +13,9 @@ class ContactTracingGUI:
         # Create Labels
         root.title("Covid Contact Tracing")
         root.geometry("700x500")
-        name = Label(root, text = "Name: ")
+        name = Label(root, text = "Full Name (First Name-Middle Name-Last Name): ")
         gender = Label(root, text = "Gender: ")
-        bday = Label(root, text = "Birthday: ")
+        age = Label(root, text = "Birthday (Month/Day/Year): ")
         phone_num = Label(root, text = "Phone Number: ")
         email_add = Label(root, text = "Email Address: ")
         address = Label(root, text = "Address: ")
@@ -21,7 +24,7 @@ class ContactTracingGUI:
         # Create Entry Fields and Radiobuttons
         self.name_entry = Entry(root)
         self.gender_entry = Entry(root)
-        self.bday_entry = Entry(root)
+        self.age_entry = Entry(root)
         self.phone_num_entry = Entry(root)
         self.email_add_entry = Entry(root)
         self.address_entry = Entry(root)
@@ -39,8 +42,8 @@ class ContactTracingGUI:
         gender.grid(row = 1, column = 0, pady = 10, padx = 5)
         self.gender_entry.grid(row = 1, column = 1)
 
-        bday.grid(row = 2, column = 0, pady = 10, padx = 5)
-        self.bday_entry.grid(row = 2, column = 1)
+        age.grid(row = 2, column = 0, pady = 10, padx = 5)
+        self.age_entry.grid(row = 2, column = 1)
 
         phone_num.grid(row = 3, column = 0, pady = 10, padx = 5)
         self.phone_num_entry.grid(row = 3, column = 1)
@@ -72,23 +75,55 @@ class ContactTracingGUI:
     def add_entry(self):
         name = self.name_entry.get()
         gender = self.gender_entry.get()
-        bday = self.bday_entry.get()
+        age = self.bday_entry.get()
         phone_num = self.phone_num_entry.get()
         email_add = self.email_add_entry.get()
         address = self.address_entry.get()
         test = self.test_var.get()
         
         # Call add_entry method from ContactTracing class
-        self.contact_trace.add_entry(name, gender, bday, phone_num, email_add, address, test)
+        self.contact_trace.add_entry(name, gender, age, phone_num, email_add, address, test)
         
         self.clear_entry()
         print("Entry Submitted.")
+        
+        # If fields have no entry
+        if not name or not gender or not age or not phone_num or not email_add or not address or not test:
+            messagebox.showerror("Please fill out all of the fields.")
+        else:
+            # Exception Handling
+            try:
+                age = int(age)
+                if age < 0 or age > 125:
+                    raise ValueError("Invalid age")
+                if not re.match(r"^\d+$", phone_num):
+                    raise ValueError("Invalid contact number")
+                
+                # Create Dictionary with the inputs
+                entry_data = {"Name": name, "Age": age, "Gender": gender, "Phone Number": phone_num, "Email": email_add, "Address": address, "Test": test}
+                
+                # Save inputs into csv file
+                with open ("contact_tracing_entries.csv", "a", newline = "") as file:
+                    writer = csv.writer(file)
+                    writer.writerow(entry_data.values())
+                
+                # A message evrytime a new entry is submitted
+                print("Entry Submitted")
+                
+            except Exception as e:
+                if str(e) == "Invalid age":
+                    messagebox.showerror("Invalid Age!")
+                elif str(e) == "Invalid contact number":
+                    messagebox.showerror("Error", "That contact number is invalid")
+                    
+        # Close the window            
+        self.root.destroy()
         
     #  Function for clearing entries
     def clear_entry(self):
         self.name_entry.delete(0, END)
         self.gender_entry.delete(0, END)
-        self.bday_entry.delete(0, END)
+        self.age_entry.delete(0, END)
         self.phone_num_entry.delete(0, END)
         self.email_add_entry.delete(0, END)
         self.address_entry.delete(0, END)
