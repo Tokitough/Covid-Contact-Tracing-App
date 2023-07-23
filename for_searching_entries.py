@@ -34,23 +34,27 @@ class Search:
         # If field is empty
         if not entry.strip():
            messagebox.showerror("Please enter a name!")
-            
+           return
+       
+        data = []
         # Read csv
-        csv_file = csv.reader(open("contact_tracing_entries", "r"))
-            
-        # Loop through the csv list
-        for row in csv_file:
-            if entry == name[0]:
-                print(row)
-        # Search Entry
-        name = self.name_entry.get()
+        with open("contact_tracing_entries.csv") as csvfile:
+            locator = csv.reader(csvfile)
+            for row in locator:
+                data.append(row)
         
-        # Call search entry method from ContactTracing class
-        entry = self.contact_trace.search_entry(name)
+        # Create list of the names
+        entries = [x[0].lower() for x in data if x]
         
-        if entry:
-            print("Entry found:")
-            for item in entry:
-            print(item)
-        else:
-            print("We cannot find this entry")
+        # If name is in the list
+        if entry in entries:
+            for x in range(0, len(data)):
+                if data[x] and entry == data[x][0].lower():
+                    # New window for the information of searched entry
+                    display_entry = tk.Toplevel(self.main)
+                    display_entry.title("Result")
+                    display_entry.geometry("500x500")
+                    
+                    # Labels for Information
+                    
+                    
