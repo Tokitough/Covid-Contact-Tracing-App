@@ -56,5 +56,25 @@ class Search:
                     display_entry.geometry("500x500")
                     
                     # Labels for Information
+                    name = tk.Label(display_entry, text = "Name: " + str(data[x][0]))
+                    gender = tk.Label(display_entry, text = "Gender: " + str(data[x][1]))
+                    bday = tk.Label(display_entry, text = "Birthday: " + str(data[x][2]))
+                    phone_num = tk.Label(display_entry, text = "Phone Number: " + str(data[x][3]))
+                    email_add = tk.Label(display_entry, text = "Email Address: " + str(data[x][4]))
+                    address = tk.Label(display_entry, text = "Address: " + str(data[x][5]))
+                    test = tk.Label(display_entry, text = "Test Status:" + str(data[x][6]))
                     
+                    name.pack(anchor='w', padx=20, pady=20)
+                    gender.pack(anchor='w', padx=20, pady=2)
+                    bday.pack(anchor='w', padx=20, pady=2)
+                    phone_num.pack(anchor='w', padx=20, pady=2)
+                    email_add.pack(anchor='w', padx=20, pady=2)
+                    address.pack(anchor='w', padx=20, pady=2)
+                    test.pack(anchor='w', padx=20, pady=2)
                     
+                    print(data[x][0])
+            
+            # If the name is not found        
+            else:
+                messagebox.showerror("We could not find this data")
+                print("No data found")
