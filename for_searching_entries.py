@@ -56,9 +56,9 @@ class Search:
                     display_entry.geometry("500x500")
                     
                     # Labels for Information
-                    name = tk.Label(display_entry, text = "Name: " + str(data[x][0]))
+                    name = tk.Label(display_entry, text = "Name (FN,MN,LN): " + str(data[x][0]))
                     gender = tk.Label(display_entry, text = "Gender: " + str(data[x][1]))
-                    bday = tk.Label(display_entry, text = "Birthday: " + str(data[x][2]))
+                    age = tk.Label(display_entry, text = "Age: " + str(data[x][2]))
                     phone_num = tk.Label(display_entry, text = "Phone Number: " + str(data[x][3]))
                     email_add = tk.Label(display_entry, text = "Email Address: " + str(data[x][4]))
                     address = tk.Label(display_entry, text = "Address: " + str(data[x][5]))
@@ -66,7 +66,7 @@ class Search:
                     
                     name.pack(anchor='w', padx=20, pady=20)
                     gender.pack(anchor='w', padx=20, pady=2)
-                    bday.pack(anchor='w', padx=20, pady=2)
+                    age.pack(anchor='w', padx=20, pady=2)
                     phone_num.pack(anchor='w', padx=20, pady=2)
                     email_add.pack(anchor='w', padx=20, pady=2)
                     address.pack(anchor='w', padx=20, pady=2)

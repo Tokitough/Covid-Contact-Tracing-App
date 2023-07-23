@@ -15,7 +15,7 @@ class ContactTracingGUI:
         root.geometry("700x500")
         name = Label(root, text = "Full Name (First Name-Middle Name-Last Name): ")
         gender = Label(root, text = "Gender: ")
-        age = Label(root, text = "Birthday (Month/Day/Year): ")
+        age = Label(root, text = "Age: ")
         phone_num = Label(root, text = "Phone Number: ")
         email_add = Label(root, text = "Email Address: ")
         address = Label(root, text = "Address: ")
@@ -75,17 +75,11 @@ class ContactTracingGUI:
     def add_entry(self):
         name = self.name_entry.get()
         gender = self.gender_entry.get()
-        age = self.bday_entry.get()
+        age = self.age_entry.get()
         phone_num = self.phone_num_entry.get()
         email_add = self.email_add_entry.get()
         address = self.address_entry.get()
         test = self.test_var.get()
-        
-        # Call add_entry method from ContactTracing class
-        self.contact_trace.add_entry(name, gender, age, phone_num, email_add, address, test)
-        
-        self.clear_entry()
-        print("Entry Submitted.")
         
         # If fields have no entry
         if not name or not gender or not age or not phone_num or not email_add or not address or not test:
@@ -115,9 +109,6 @@ class ContactTracingGUI:
                     messagebox.showerror("Invalid Age!")
                 elif str(e) == "Invalid contact number":
                     messagebox.showerror("Error", "That contact number is invalid")
-                    
-        # Close the window            
-        self.root.destroy()
         
     #  Function for clearing entries
     def clear_entry(self):
