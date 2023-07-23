@@ -1,12 +1,11 @@
 # Import tkinter module
 from tkinter import *
-from contact_tracing_app import ContactTracing
 import tkinter as tk
 from tkinter import messagebox
 import re
 import csv
 
-class ContactTracingGUI:
+class Add:
     def __init__(self, root):
         self.root = root
         
@@ -63,13 +62,6 @@ class ContactTracingGUI:
         # Button
         self.submit_btn = tk.Button(root, text = "Submit Entry", command = self.add_entry)
         self.submit_btn.place(x = 160, y = 350, width = 90)
-    
-        self.search_btn = tk.Button(root, text = "Search Entry", command = self.search_entry)
-        self.search_btn.place(x = 160, y = 380, width = 90)
-        
-        # Instance for contact tracing app
-        self.contact_trace = ContactTracing()
-        
         
     # Function for getting entries
     def add_entry(self):
