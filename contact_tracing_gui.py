@@ -94,17 +94,5 @@ class ContactTracingGUI:
         self.address_entry.delete(0, END)
         self.test_var.set("")
 
-    # Search Entry
-    def search_entry(self):
-        name = self.name_entry.get()
-        
-        # Call search entry method from ContactTracing class
-        entry = self.contact_trace.search_entry(name)
-        
-        if entry:
-            print("Entry found:")
-            for item in entry:
-                print(item)
-        else:
-            print("We cannot find this entry")
+
         
