@@ -18,7 +18,7 @@ class Add:
         answer_window.configure(bg = "#ffeebf")
         
         # Create Labels
-        name = Label(answer_window, text = "Full Name (First Name-Middle Name-Last Name): ", bg = "#ffeebf")
+        name = Label(answer_window, text = "Full Name (FN/MN/LN): ", bg = "#ffeebf")
         gender = Label(answer_window, text = "Gender: ", bg = "#ffeebf")
         age = Label(answer_window, text = "Age: ", bg = "#ffeebf")
         phone_num = Label(answer_window, text = "Phone Number: ", bg = "#ffeebf")
@@ -27,12 +27,12 @@ class Add:
         test = Label(answer_window, text = "Have you tested for Covid? ", bg = "#ffeebf")
         
         # Create Entry Fields and Radiobuttons
-        self.name_entry = Entry(answer_window)
-        self.gender_entry = Entry(answer_window)
-        self.age_entry = Entry(answer_window)
-        self.phone_num_entry = Entry(answer_window)
-        self.email_add_entry = Entry(answer_window)
-        self.address_entry = Entry(answer_window)
+        self.name_entry = Entry(answer_window, width = 25)
+        self.gender_entry = Entry(answer_window, width = 25)
+        self.age_entry = Entry(answer_window, width = 25)
+        self.phone_num_entry = Entry(answer_window, width = 25)
+        self.email_add_entry = Entry(answer_window, width = 25)
+        self.address_entry = Entry(answer_window, width = 25)
         
         self.test_var = IntVar()
         test_1 = Radiobutton(answer_window, text = "No", variable = self.test_var, value = 1, bg = "#ffeebf")
@@ -60,14 +60,14 @@ class Add:
         self.address_entry.grid(row = 5, column = 1)
         
         test.grid(row = 6, column = 0, pady = 10, padx = 5)
-        test_1.place(x = 277, y = 255)
-        test_2.place(x = 277, y = 275)
-        test_3.place(x = 277, y = 295)
-        test_4.place(x = 277, y = 315)
+        test_1.place(x = 158, y = 255)
+        test_2.place(x = 158, y = 275)
+        test_3.place(x = 158, y = 295)
+        test_4.place(x = 158, y = 315)
         
         # Button
-        self.submit_btn = tk.Button(answer_window, text = "Submit Entry", command = self.add_entry)
-        self.submit_btn.place(x = 160, y = 350, width = 90)
+        self.submit_btn = tk.Button(answer_window, text = "Submit Entry", command = self.add_entry, bg = "#ffeebf")
+        self.submit_btn.place(x = 195, y = 350, width = 90)
         
         self.answer_window = answer_window
         
