@@ -13,15 +13,18 @@ class Search:
         # Create window
         search_window = tk.Toplevel(self.main)
         search_window.title("Searching...")
-        search_window.geometry("250x200")
+        search_window.geometry("350x300")
         search_window.configure(bg = "#ffeebf")
         
         # Search Label, Entry field, and Button
         name = Label(search_window, text = "Search for?", bg = "#ffeebf")
+        reminder = Label(search_window, text = "Note: Input the full name in FN-MN-LN format", bg = "#ffeebf")
         self.name_entry = Entry(search_window, text = "Search for?")
         name_search = tk.Button(search_window, text = "Search Entry", command = self.search_entry, bg = "#ffeebf")
-    
+
+        
         name.pack(anchor='center', padx=50, pady=15)
+        reminder.pack(anchor='s')
         self.name_entry.pack(anchor='center', padx=20, pady=2)
         name_search.pack(anchor='center', padx=20, pady=2)
         

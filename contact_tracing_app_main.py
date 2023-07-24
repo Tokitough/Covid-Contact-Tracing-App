@@ -1,12 +1,15 @@
 import tkinter as tk
 from contact_tracing_gui import Add
 from for_searching_entries import Search
+from tkinter import *
 
 # Create Main Window
 main_window = tk.Tk()
 main_window.title("Covid Contact Tracing")
 main_window.geometry("750x500")
 main_window.configure(bg = "#ffeebf")
+title = Label(main_window, text = "Covid Contact Tracing App", width = 40, height = 2, font = ("Times New Roman", 20), bg = "#ffeebf")
+title.place(relx=0.5, rely=0.30, anchor=tk.CENTER)
 
 # Instance of a class
 add = Add(main_window)
